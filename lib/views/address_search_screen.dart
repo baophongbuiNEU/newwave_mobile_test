@@ -52,6 +52,10 @@ class _AddressSearchScreenState extends ConsumerState<AddressSearchScreen> {
     }
   }
 
+  Future<void> _openLocation(Location location) async {
+    await ref.read(mapServiceProvider).openInGoogleMaps(location);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,10 +90,6 @@ class _AddressSearchScreenState extends ConsumerState<AddressSearchScreen> {
         ),
       ),
     );
-  }
-
-  Future<void> _openLocation(Location location) async {
-    await ref.read(mapServiceProvider).openInGoogleMaps(location);
   }
 
   Widget _buildLocationTile(
